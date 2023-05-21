@@ -1,9 +1,12 @@
 const express = require("express");
 const app = express();
+const cors = require('cors');
 const apiRoutes = require("./routes/apiRoutes");
 const { loadUsersOnMongo } = require("./controllers/usersControllers");
 
+
 app.use(express.json());
+app.use(cors());
 
 app.get("/", async (req, res, next) => {
     res.json({ message: "API Running..." })
